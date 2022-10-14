@@ -39,15 +39,15 @@ function newCity(city) {
 }
 function searching(event) {
   event.preventDefault();
-  let city = document.querySelector("#location").value;
-  city(city);
+  let city = document.querySelector("#change").value;
+  newCity(city);
 }
 function searchLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let key = "88e0d667a1fd1dd87882eeeb4f42a013";
   let url = `https://api.openweathermap.org/data/3.0/weather&lat=${lat}&lon=${lon}&appid=${key}/units=metric`;
-  axios.get(url).then(currentTemp);
+  axios.get(apiUrl).then(currentTemp);
 }
 function currentLocation(event) {
   event.preventDefault();
@@ -79,4 +79,4 @@ search.addEventListener("submit", searching);
 
 newCity("Paris");
 let cLocationButton = document.querySelector("#cLocation");
-cLocationButton.addEventListener("click", getCurrentLocation);
+cLocationButton.addEventListener("click", currentLocation);
